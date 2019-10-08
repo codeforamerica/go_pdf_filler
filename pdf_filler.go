@@ -3,9 +3,10 @@ package main
 import (
 	"bufio"
 	"encoding/csv"
-	"fmt"
-	"os"
+	"github.com/desertbit/fillpdf"
 	"github.com/jessevdk/go-flags"
+	"log"
+	"os"
 )
 
 type runOpts struct {
@@ -30,9 +31,20 @@ func ReadCSV(filepath string) (string, error) {
 	// dump into PDF
 }
 
+func FillForm(stringToWrite string) {
+	form := fillpdf.Form{
+		"field0": stringToWrite,
+	}
+
+	err := fillpdf.Fill(form, "test_pdf.pdf", "filled_test_pdf.pdf", true)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
 func (o runOpts) Execute(args []string) error {
 	string, err := ReadCSV(o.InputCSV)
-	fmt.Print(string)
+	FillForm(string)
 	if err != nil {
 		return err
 	}

@@ -2,6 +2,14 @@
 
 
 [[projects]]
+  branch = "master"
+  digest = "1:382e105af3917771e6e367ec9a591798b730debb2e722c8780c9527b12c8e9e5"
+  name = "github.com/desertbit/fillpdf"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "cece5eb911573dac0d5ff05faee4070431304c04"
+
+[[projects]]
   digest = "1:a2cff208d4759f6ba1b1cd228587b0a1869f95f22542ec9cd17fff64430113c7"
   name = "github.com/jessevdk/go-flags"
   packages = ["."]
@@ -12,6 +20,9 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  input-imports = ["github.com/jessevdk/go-flags"]
+  input-imports = [
+    "github.com/desertbit/fillpdf",
+    "github.com/jessevdk/go-flags",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
